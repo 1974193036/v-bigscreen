@@ -8,5 +8,6 @@ export default beauty({
 }, {
   rules: {
     'no-console': 'off',
+    'node/prefer-global/process': 'off',
   },
 })

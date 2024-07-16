@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:analyze": "cross-env ANALAYZ=true vue-cli-service build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -20,7 +21,9 @@
     "@shishuaiyun/eslint-config": "0.1.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "vue-template-compiler": "^2.6.14"
+    "cross-env": "^7.0.3",
+    "vue-template-compiler": "^2.6.14",
+    "webpack-bundle-analyzer": "^4.10.2"
   },
   "browserslist": [
     "> 1%",
