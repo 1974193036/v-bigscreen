@@ -1,8 +1,12 @@
 <script>
 import { roamData, seasonData, timeData, weatherData } from './staticData.js'
+import BuildingPanel from './BuildingPanel'
 
 export default {
   name: 'Building',
+  components: {
+    BuildingPanel,
+  },
   data() {
     return {
       currentMenuIndex: -1,
@@ -51,7 +55,7 @@ export default {
 <template>
   <div class="building">
     <div class="right-panel">
-      右侧图表区域
+      <BuildingPanel />
     </div>
     <div class="bottom-bg" />
     <div class="bottom-menu">
