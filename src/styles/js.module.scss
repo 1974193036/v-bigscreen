@@ -1,0 +1,13 @@
+@import "./variables.scss";
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+
+//https://blog.csdn.net/ww_5211314/article/details/109614511
+:export {
+  bodyBg: $bodyBg;
+  slideBarWidth: $slideBarWidth;
+  titleColor: $titleColor;
+  designWidth: $designWidth;
+  designHeight: $designHeight;
+}

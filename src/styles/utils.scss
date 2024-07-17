@@ -1,11 +1,7 @@
 @use "sass:math"; 
+@use "./variables.scss" as *;
 
-$bodyBg:#cdcdcd;
-$slideBarWidth:280px;
-$titleColor:blue;
 
-$designWidth:1920;
-$designHeight:1080;
 
 // 这里宽高参考PSD设计稿 ；我这里宽为1920px，高为1080px为例
 // 所以这里 计算vw时除以1920，计算vh时除以1080；以便在使用时，不用去计算倍数， PSD设计稿中的尺寸是多少，我们样式就是多少！！！
@@ -48,16 +44,4 @@ $designHeight:1080;
   &::-webkit-input-placeholder {
     @content;
   }
-}
-
-// the :export directive is the magic sauce for webpack
-// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
-
-//https://blog.csdn.net/ww_5211314/article/details/109614511
-:export {
-  bodyBg:$bodyBg;
-  slideBarWidth:$slideBarWidth;
-  titleColor:$titleColor;
-  designWidth: $designWidth;
-  designHeight: $designHeight;
 }

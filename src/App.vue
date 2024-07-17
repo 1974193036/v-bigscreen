@@ -1,9 +1,16 @@
 <script>
 import TheHeader from '@/components/TheHeader/Header.vue'
+import NavMenu from '@/components/NavMenu/NavMenu.vue'
 
 export default {
   components: {
     TheHeader,
+    NavMenu,
+  },
+  data() {
+    return {
+      transitionName: '',
+    }
   },
 }
 </script>
@@ -11,8 +18,11 @@ export default {
 <template>
   <div id="app" class="cmpt">
     <TheHeader />
+    <NavMenu />
     <div class="viewer">
-      <router-view />
+      <transition name="slide-right" mode="out-in">
+        <router-view />
+      </transition>
     </div>
   </div>
 </template>
@@ -34,5 +44,22 @@ export default {
   width: 100%;
   height: vh(980);
   overflow: hidden;
+}
+</style>
+
+<style>
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.slide-right-enter-from {
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.slide-right-leave-to {
+  transform: translateX(50%);
+  opacity: 0;
 }
 </style>
