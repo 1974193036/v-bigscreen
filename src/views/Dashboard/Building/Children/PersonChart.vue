@@ -8,20 +8,7 @@ export default {
   },
   data() {
     return {
-      dataList: [
-        {
-          name: '教师',
-          value: 20,
-        },
-        {
-          name: '学生',
-          value: 60,
-        },
-        {
-          name: '清洁工',
-          value: 20,
-        },
-      ],
+      dataList: [],
       extraOption: {
         title: {
           text: '人员信息数据',
@@ -43,28 +30,42 @@ export default {
       },
     }
   },
-  mounted() {
+  created() {
+    // 获取数据
     setTimeout(() => {
-      // 以下更新数据都可以
-      // this.dataList = [
-      //   {
-      //     name: '教师',
-      //     value: 120,
-      //   },
-      //   {
-      //     name: '学生',
-      //     value: 460,
-      //   },
-      //   {
-      //     name: '清洁工',
-      //     value: 220,
-      //   },
-      // ]
-      this.dataList[1].value = 120
-    }, 3000)
-  },
-  methods: {
+      this.dataList = [
+        {
+          name: '教师',
+          value: 20,
+        },
+        {
+          name: '学生',
+          value: 60,
+        },
+        {
+          name: '清洁工',
+          value: 20,
+        },
+      ]
+    }, 200)
 
+    // 更新数据
+    setTimeout(() => {
+      this.dataList = [
+        {
+          name: '教师',
+          value: 20,
+        },
+        {
+          name: '学生',
+          value: 120,
+        },
+        {
+          name: '清洁工',
+          value: 20,
+        },
+      ]
+    }, 2000)
   },
 }
 </script>

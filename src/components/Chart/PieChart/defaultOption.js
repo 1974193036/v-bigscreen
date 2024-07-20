@@ -37,7 +37,7 @@ export function getBasicOption() {
           },
         },
         label: {
-          fontSize: fitChartSizeVh(12),
+          fontSize: fitChartSizeVh(14),
           color: '#fff',
         },
         data: [], // 这里在使用的时候会被业务数据替换
