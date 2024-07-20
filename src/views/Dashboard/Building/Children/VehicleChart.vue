@@ -10,16 +10,6 @@ export default {
   },
   mounted() {
     this.initLine()
-    window.addEventListener('resize', () => {
-      this.resize()
-    })
-  },
-  beforeDestroy() {
-    if (!this.chart)
-      return
-
-    this.chart.dispose()
-    this.chart = null
   },
   methods: {
     initLine() {
@@ -149,18 +139,12 @@ export default {
 
       option && this.chart.setOption(option)
     },
-    resize() {
-      console.log('resize')
-      if (!this.chart)
-        return
-      this.chart.resize()
-    },
   },
 }
 </script>
 
 <template>
-  <div id="vehicleChart" />
+  <div id="vehicleChart" v-chart-resize />
 </template>
 
 <style scoped lang="scss">

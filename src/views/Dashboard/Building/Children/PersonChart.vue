@@ -1,98 +1,78 @@
 <script>
-import Highcharts from 'highcharts/highstock'
-import Highcharts3D from 'highcharts/highcharts-3d'
-
-Highcharts3D(Highcharts)
+import { PieChart } from '@/components/Chart'
 
 export default {
   name: 'PeopleInfo',
+  components: {
+    PieChart,
+  },
   data() {
     return {
-      HighChart: null,
-    }
-  },
-  mounted() {
-    this.initHighCart()
-    window.addEventListener('resize', () => {
-      this.resizeHighcharts()
-    })
-  },
-  methods: {
-    initHighCart() {
-      this.HighChart = Highcharts.chart('peopleInfo', {
-        chart: {
-          type: 'pie',
-          backgroundColor: 'rgba(0,0,0,0)',
-          options3d: {
-            enabled: true,
-            alpha: 60,
-          },
+      dataList: [
+        {
+          name: '教师',
+          value: 20,
         },
-        colors: ['#47FCEB', '#EC7C59', '#01AEFF'],
+        {
+          name: '学生',
+          value: 60,
+        },
+        {
+          name: '清洁工',
+          value: 20,
+        },
+      ],
+      extraOption: {
         title: {
-          text: null,
-          margin: 0,
-        },
-        plotOptions: {
-          pie: {
-            innerSize: 120, // 饼图中心空心圆的大小
-            allowPointSelect: true,
-            cursor: 'pointer',
-            size: 340,
-            depth: 60,
-            dataLabels: {
-              enabled: true,
-              color: '#fff',
-              distance: -50, // --设置偏移，使文字显示在图形内
-              padding: 15,
-              style: {
-                fontSize: '20px', // --设置文字大小
-                textOutline: '1px 1px rgba(255,255,255,.0)',
-                textShadow: '2px 2px 2px rgba(2,2,2,.4)',
-              },
-              formatter() {
-                return `
-                    <p>${this.key}</p>
-                `
-              },
-            },
-          },
+          text: '人员信息数据',
         },
         series: [
           {
-            name: '人员信息总览',
-            data: [
-              ['员工数量', 168],
-              ['访客数量', 34],
-              ['陌生人数量', 10],
-            ],
+            name: '人员占比',
+            center: ['50%', '90%'],
+            radius: ['30%', '50%'],
+            startAngle: 180,
+            endAngle: 360,
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: '#333C41',
+              borderWidth: 2,
+            },
           },
         ],
-      })
-    },
-    resizeHighcharts() {
-      // console.log(this.HighChart)
-    },
+      },
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      // 以下更新数据都可以
+      // this.dataList = [
+      //   {
+      //     name: '教师',
+      //     value: 120,
+      //   },
+      //   {
+      //     name: '学生',
+      //     value: 460,
+      //   },
+      //   {
+      //     name: '清洁工',
+      //     value: 220,
+      //   },
+      // ]
+      this.dataList[1].value = 120
+    }, 3000)
+  },
+  methods: {
+
   },
 }
 </script>
 
 <template>
   <div class="people-info-box">
-    <div id="peopleInfo" />
-    <div class="people-info">
-      <div class="item">
-        <span>员工数量</span>
-        <span style="color: #47FCEB">168</span>
-      </div>
-      <div class="item">
-        <span>访客数量</span>
-        <span style="color: #EC7C59">34</span>
-      </div>
-      <div class="item">
-        <span>陌生人数量</span>
-        <span style="color: #01AEFF">10</span>
-      </div>
+    <div id="peopleInfo">
+      <PieChart :series-data="dataList" :extra-option="extraOption" />
     </div>
   </div>
 </template>
@@ -101,37 +81,11 @@ export default {
 .people-info-box {
   display: flex;
   justify-content: space-between;
-  margin-top: vh(54);
 
   #peopleInfo {
     width: vw(160);
-    height: vh(138);
+    height: vh(240);
     flex: 1;
-  }
-
-  .people-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #fff;
-    text-align: left;
-    font-family: digital;
-
-    .item {
-      display: flex;
-      align-items: center;
-      span:nth-child(1) {
-        font-size: vh(14);
-        width: vw(59.07);
-      }
-      span:nth-child(2) {
-        font-size: vh(30.6);
-        text-align: left;
-        width: vw(48);
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-    }
   }
 }
 </style>

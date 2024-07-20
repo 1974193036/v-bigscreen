@@ -10,16 +10,6 @@ export default {
   },
   mounted() {
     this.initRadar()
-    window.addEventListener('resize', () => {
-      this.resize()
-    })
-  },
-  beforeDestroy() {
-    if (!this.chart)
-      return
-
-    this.chart.dispose()
-    this.chart = null
   },
   methods: {
     initRadar() {
@@ -136,18 +126,12 @@ export default {
 
       option && this.chart.setOption(option)
     },
-    resize() {
-      console.log('resize')
-      if (!this.chart)
-        return
-      this.chart.resize()
-    },
   },
 }
 </script>
 
 <template>
-  <div id="warningChart" />
+  <div id="warningChart" v-chart-resize />
 </template>
 
 <style scoped lang="scss">
