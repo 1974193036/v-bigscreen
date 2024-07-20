@@ -14,6 +14,9 @@ dependencies:
   element-ui:
     specifier: ^2.15.14
     version: 2.15.14(vue@2.6.14)
+  highcharts:
+    specifier: 9.3.2
+    version: 9.3.2
   lodash-es:
     specifier: ^4.17.21
     version: 4.17.21
@@ -4992,6 +4995,10 @@ packages:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
     dev: true
+
+  /highcharts@9.3.2:
+    resolution: {integrity: sha512-I/48gNMvs3hZxZnPRUqLbnlrGZJJ7YPPVr1+fYeZ35p4pSZAOwTmAGbptrjBr7JlF52HmJH9zMbt/I4TPLu9Pg==}
+    dev: false
 
   /highlight.js@10.7.3:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
