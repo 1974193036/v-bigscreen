@@ -1,5 +1,4 @@
 const path = require('node:path')
-const { defineConfig } = require('@vue/cli-service')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const plugins = []
@@ -11,8 +10,8 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-module.exports = defineConfig({
-  transpileDependencies: true,
+module.exports = {
+  // transpileDependencies: true,
   productionSourceMap: false,
   configureWebpack: {
     name: '大屏',
@@ -27,8 +26,8 @@ module.exports = defineConfig({
     // 全局配置utils.scss
     loaderOptions: {
       scss: {
-        additionalData: `@import "@/styles/utils.scss";`,
+        prependData: `@import "@/styles/utils.scss";`,
       },
     },
   },
-})
+}

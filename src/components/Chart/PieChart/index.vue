@@ -1,5 +1,5 @@
 <script>
-import * as Echarts from 'echarts'
+import * as Echarts from 'echarts/core'
 import { debounce, merge } from 'lodash-es'
 import { getBasicOption } from './defaultOption.js'
 import { pieChartColor } from './../color.js'

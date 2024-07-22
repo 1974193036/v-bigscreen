@@ -1,7 +1,12 @@
 import Vue from 'vue'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import * as ECharts from 'echarts'
+
+// import 'element-ui/lib/theme-chalk/index.css'
+import {
+  onFCP,
+  onLCP,
+} from 'web-vitals'
+
+import plugins from './plugins'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -9,8 +14,7 @@ import './styles/index.scss'
 import directive from './directive'
 
 Vue.config.productionTip = false
-Vue.prototype.$echarts = ECharts
-Vue.use(ElementUI)
+Vue.use(plugins)
 Vue.use(directive)
 
 new Vue({
@@ -18,3 +22,6 @@ new Vue({
   store,
   render: h => h(App),
 }).$mount('#app')
+
+onFCP(console.log)
+onLCP(console.log)

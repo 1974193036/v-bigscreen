@@ -1,4 +1,4 @@
-import * as ECharts from 'echarts'
+import * as Echarts from 'echarts/core'
 import elementResizeDetectorMaker from 'element-resize-detector'
 import { debounce } from 'lodash-es'
 
@@ -10,7 +10,7 @@ export default {
     el[HANDLER] = binding.value
       ? binding.value
       : debounce(() => {
-        const chart = ECharts.getInstanceByDom(el)
+        const chart = Echarts.getInstanceByDom(el)
         if (chart)
           chart.resize()
       }, 100)
