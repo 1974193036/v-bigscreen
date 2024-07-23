@@ -6,6 +6,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 async function responseDataMiddleware(ctx, next) {
   const url = ctx.request.url
+  if (!url.includes('/api')) {
+    await next()
+    return
+  }
   let filePath = url.replace('/api', '')
   filePath = `../data${filePath}.json`
   filePath = path.join(__dirname, filePath)

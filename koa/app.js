@@ -2,6 +2,7 @@ import Koa from 'koa'
 import responseDurationMiddleware from './middleware/koa_response_duration.js'
 import responseHeaderMiddleware from './middleware/koa_response_header.js'
 import responseDataMiddleware from './middleware/koa_response_data.js'
+import responseSSEMiddleware from './middleware/koa_sse.js'
 import { createSocket } from './web_socket_service.js'
 
 const app = new Koa()
@@ -12,6 +13,8 @@ app.use(responseDurationMiddleware)
 app.use(responseHeaderMiddleware)
 
 app.use(responseDataMiddleware)
+
+app.use(responseSSEMiddleware)
 
 const port = 7777
 

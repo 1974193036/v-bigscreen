@@ -22,15 +22,23 @@ export default {
     }
   },
   created() {
-    // 获取数据
-    setTimeout(() => {
-      this.dataList = [120, 200, 150, 80, 70, 110, 130]
-    }, 200)
+    // 使用SSE更新数据
+    const evtSource = new EventSource('http://localhost:7777/events')
+    evtSource.onmessage = (event) => {
+      const eventObject = JSON.parse(event.data)
+      console.log('通过SSE实时获取数据', eventObject.list)
+      this.dataList = eventObject.list
+    }
 
-    // 更新数据
-    setTimeout(() => {
-      this.dataList = [400, 800, 150, 80, 70, 110, 130]
-    }, 2000)
+    // // 获取数据
+    // setTimeout(() => {
+    //   this.dataList = [120, 200, 150, 80, 70, 110, 130]
+    // }, 200)
+
+    // // 更新数据
+    // setTimeout(() => {
+    //   this.dataList = [400, 800, 150, 80, 70, 110, 130]
+    // }, 2000)
   },
   methods: {
 
