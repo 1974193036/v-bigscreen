@@ -7,6 +7,7 @@
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:analyze": "cross-env ANALAYZ=true vue-cli-service build",
+    "serve": "nodemon ./koa/app.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -30,11 +31,13 @@
     "babel-preset-env": "^1.7.0",
     "cross-env": "^7.0.3",
     "fs-extra": "^10.1.0",
+    "koa": "^2.15.3",
     "picocolors": "^1.0.0",
     "sass": "^1.24.4",
     "sass-loader": "^8.0.2",
     "script-ext-html-webpack-plugin": "^2.1.5",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "ws": "^8.12.1"
   },
   "browserslist": [
     "> 1%",

@@ -12,6 +12,11 @@ import router from './router'
 import store from './store'
 import './styles/index.scss'
 import directive from './directive'
+import SocketService from './utils/socketUtil'
+
+// 开启websocket
+SocketService.Instance.connect()
+Vue.prototype.$socket = SocketService.Instance
 
 Vue.config.productionTip = false
 Vue.use(plugins)
